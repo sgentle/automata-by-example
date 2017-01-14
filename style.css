@@ -1,0 +1,96 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  height: 48px;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.delrule {
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+}
+#main {
+  margin: 16px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+#canvas {
+  flex: 1 1 auto;
+  height: 0;
+  object-fit: contain;
+}
+#aspectcontainer {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100vh;
+  height: 0;
+  padding-bottom: 100%;
+  overflow:hidden;
+}
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  margin: 16px;
+  align-items: flex-end;
+}
+#addrule {
+  width: 100%;
+}
+#clear {
+  width: 100%;
+  height: 48px;
+}
+#rules {
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.rule,.temprule{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.temprule {
+  opacity: 0.5;
+}
+#controls {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+#controls > * {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+#tools {
+  flex: 0 0 auto;
+  margin-top: 16px;
+  width: 100%;
+}
+#links {
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  font-size: 16px;
+  background-color: white;
+}
+a {
+  color: black;
+}

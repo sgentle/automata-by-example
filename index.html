@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+  <title>Automata by Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="main">
+    <canvas id="canvas" width="900" height="900"></canvas>
+    <div id="controls">
+      <input id="rulemode" name="mode" type="radio" checked><label for="rulemode">rule mode</label>
+      <input id="drawmode" name="mode" type="radio"><label for="drawmode">draw mode</label>
+      <button id="pause">pause</button>
+      <button id="reset">reset</button>
+      <button id="random">random</button>
+      <input id="speed" type="range" min="1" max="50" value="41" step="1">
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="rules">
+      <button id="addrule">+</button>
+    </div>
+    <div id="tools">
+      <button id="clear">clear all rules</button>
+    </div>
+  </div>
+  <div id="links">
+    <a href="https://github.com/sgentle/automata-by-example">Code</a>
+    <a href="https://samgentle.com/posts/2017-01-14-automata-by-example">Writeup</a>
+  </div>
+  <script src="client.js"></script>
+</body>
