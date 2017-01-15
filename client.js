@@ -228,6 +228,7 @@
       if (!temprule) {
         delete rules[pattern];
       }
+      updateRules();
       return;
     }
     if (kind === 'modifier') {

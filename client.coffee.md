@@ -281,6 +281,7 @@ otherwise clobber an existing rule.
       if kind is 'delrule'
         ev.target.parentNode.remove()
         delete rules[pattern] unless temprule
+        updateRules()
         return
 
       if kind is 'modifier'
