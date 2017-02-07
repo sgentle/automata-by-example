@@ -94,3 +94,32 @@ button {
 a {
   color: black;
 }
+#epilepsy-warning {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 32px;
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.5);
+  padding: 1em 2em;
+  flex-direction: column;
+  top: 20%;
+  left: 10%;
+  bottom: 20%;
+  right: 10%;
+}
+@media screen and (max-width: 650px), screen and (max-height: 800px) {
+  #epilepsy-warning {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0px;
+  }
+}
+#epilepsy-warning div {
+  flex: 1 1 auto;
+  margin: 1em 0;
+}
+#epilepsy-options {
+  text-align: center;
+}

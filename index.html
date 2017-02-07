@@ -12,7 +12,7 @@
       <button id="pause">pause</button>
       <button id="reset">reset</button>
       <button id="random">random</button>
-      <input id="speed" type="range" min="1" max="50" value="41" step="1">
+      <input id="speed" type="range" min="1" max="60" value="41" step="1">
     </div>
   </div>
   <div id="sidebar">
@@ -26,6 +26,19 @@
   <div id="links">
     <a href="https://github.com/sgentle/automata-by-example">Code</a>
     <a href="https://samgentle.com/posts/2017-01-14-automata-by-example">Writeup</a>
+  </div>
+  <div id="epilepsy-warning">
+    <div>
+      <p>Hey! Just so you know, these automata rules include flashy white-to-black and black-to-white transitions, which could trigger photosensitive epilepsy.
+      <p>What would you like to do?
+    </div>
+    <div id="epilepsy-options">
+      <button id="epilepsy-ignore">Play at normal speed, flashy is fine</button>
+      <button id="epilepsy-slow">Play at slow (~1Hz) speed</button>
+      <button id="epilepsy-pause">Pause the automata</button>
+      <br>
+      <input id="epilepsy-persist" name="mode" type="checkbox"><label for="epilepsy-persist">Always do this</label>
+    </div>
   </div>
   <script src="client.js"></script>
 </body>

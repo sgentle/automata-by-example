@@ -257,6 +257,8 @@ around.
 
       updateLocation()
 
+      epilepsyWarning() if rules[0] and rules[(1<<9)-1]
+
       e.remove() for _, e of stale
 
 Finally, our monster onclick handler. This deals with any updates to the rules
@@ -411,13 +413,49 @@ Here's where we set the listeners for our various toggles, sliders and buttons.
       updateRules()
       clearTempRules()
 
-    $('#pause').addEventListener 'click', ->
-      paused = !paused
+    setPause = (pause) ->
+      paused = pause
       drawcount = timeScale
       $('#pause').textContent = if paused then "resume" else "pause"
 
-    $('#speed').addEventListener 'input', (ev) ->
-      timeScale = 51 - ev.target.value
+    $('#pause').addEventListener 'click', -> setPause !paused
+
+    updateSpeed = (speed) ->
+      timeScale = 61 - speed
+      $('#speed').value = speed
+
+    $('#speed').addEventListener 'input', (ev) -> updateSpeed ev.target.value
+
+Epilepsy warning
+----------------
+
+Rules for 0x0 and 0x1ff (full white + full black) can lead to some interesting
+patterns, but also possibly trigger photosensitive epilepsy. If we have those
+rules display a warning and give the option to play at a lower speed or pause.
+
+    epilepsyWarning = ->
+      if handler = localStorage.getItem 'epilepsyHandler'
+        handleEpilepsy handler
+      else
+        setPause true
+        $('#epilepsy-warning').style.display = 'flex'
+
+    handleEpilepsy = (behaviour) ->
+      switch behaviour
+        when 'pause' then setPause true
+        when 'slow' then updateSpeed 1
+        when 'ignore' then null
+
+    setEpilepsyHandler = (behaviour) -> ->
+      setPause false
+      handleEpilepsy behaviour
+      if $('#epilepsy-persist').checked
+        localStorage.setItem 'epilepsyHandler', behaviour
+      $('#epilepsy-warning').style.display = 'none'
+
+    $('#epilepsy-pause').addEventListener 'click', setEpilepsyHandler 'pause'
+    $('#epilepsy-slow').addEventListener 'click', setEpilepsyHandler 'slow'
+    $('#epilepsy-ignore').addEventListener 'click', setEpilepsyHandler 'ignore'
 
 
 URL parsing
