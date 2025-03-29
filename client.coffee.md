@@ -122,7 +122,7 @@ The inputs don't overlap, ie olddata[n] can't affect olddata[n+1], but the
 outputs can. Rules matching two adjacent input cells can both modify the same
 output cells. When this happens, they xor together.
 
-    rules = new Array(1<<8)
+    rules = new Array(1<<9)
     step = ->
       for i in [0...DATA_LENGTH] by 1
         olddata[i] = data[i]
@@ -478,9 +478,8 @@ easter egg for you in this function.
           for urlrule in urlrules.split '&'
             [urlpattern, urlmodifier] = urlrule.split '='
             rules[parseInt(urlpattern, 16)] = parseInt(urlmodifier, 16)
-      updateRules()
 
-    rulesFromQuery()
+      updateRules()
 
 Thanks to whichever goddamn wizard figured this magic out.
 
@@ -488,3 +487,5 @@ Thanks to whichever goddamn wizard figured this magic out.
       i = i - ((i >> 1) & 0x55555555)
       i = (i & 0x33333333) + ((i >> 2) & 0x33333333)
       (((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24
+
+    rulesFromQuery()
